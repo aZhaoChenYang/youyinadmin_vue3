@@ -20,7 +20,7 @@ interface SettingTy {
 }
 
 const setting: SettingTy = {
-  title: 'Vue3 Admin Ts',
+  title: '友引剧社',
   /**
    * @type {boolean} true | false
    * @description Whether show the logo in sidebar
@@ -54,7 +54,7 @@ const setting: SettingTy = {
   /**
    * @description TagsView show number
    */
-  tagsViewNum: 6,
+  tagsViewNum: 9,
   /**
    * @type {boolean} true | false
    * @description Whether show the top Navbar

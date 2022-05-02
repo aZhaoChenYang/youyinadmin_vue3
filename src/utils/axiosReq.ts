@@ -13,7 +13,7 @@ const service: any = axios.create()
 service.interceptors.request.use(
   (request: AxiosReqTy) => {
     // token setting
-    request.headers['AUTHORIZE_TOKEN'] = getToken()
+    request.headers['Authorization'] = getToken()
     /* download file*/
     if (request.isDownLoadFile) {
       request.responseType = 'blob'
@@ -54,7 +54,7 @@ service.interceptors.response.use(
     if (reqConfig.isDownLoadFile) {
       return res
     }
-    const { flag, msg, isNeedUpdateToken, updateToken, code } = res.data
+    const { flag, message, isNeedUpdateToken, updateToken, code } = res.data
     //更新token保持登录状态
     if (isNeedUpdateToken) {
       setToken(updateToken)
@@ -77,7 +77,7 @@ service.interceptors.response.use(
       }
       if (reqConfig.isAlertErrorMsg) {
         ElMessage({
-          message: msg,
+          message: message,
           type: 'error',
           duration: 2 * 1000
         })

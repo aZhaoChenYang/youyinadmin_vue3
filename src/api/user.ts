@@ -3,18 +3,18 @@ import { ObjTy } from '~/common'
 
 export function loginReq(data: ObjTy) {
   return request({
-    url: '/integration-front/user/loginValid',
+    url: 'login',
     data,
     method: 'post',
     bfLoading: false,
-    isParams: true,
+    isParams: false,
     isAlertErrorMsg: false
   })
 }
 
 export function getInfoReq() {
   return request({
-    url: '/integration-front/user/getUserInfo',
+    url: '/getUserInfo',
     bfLoading: false,
     method: 'post',
     isAlertErrorMsg: false
@@ -23,7 +23,7 @@ export function getInfoReq() {
 
 export function logoutReq() {
   return request({
-    url: '/integration-front/user/loginOut',
+    url: '/loginOut',
     method: 'post'
   })
 }

@@ -59,7 +59,7 @@ watch(
   () => $route.path,
   () => {
     addTags()
-    // tag remove has issue
+    // tags remove has issue
     // moveToCurrentTag()
   }
 )
@@ -122,7 +122,7 @@ const tagsViewStore = useTagsViewStore()
 const initTags = () => {
   const affixTags = (state.affixTags = filterAffixTags(routes.value))
   for (const tag of affixTags) {
-    // Must have tag name
+    // Must have tags name
     if (tag.name) {
       tagsViewStore.addVisitedView(tag)
     }

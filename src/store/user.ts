@@ -40,9 +40,9 @@ export const useUserStore = defineStore('user', {
       return new Promise((resolve, reject) => {
         loginReq(data)
           .then((res: ObjTy) => {
-            if (res.code === 20000) {
+            if (res.code === 0) {
               //commit('SET_Token', res.data?.jwtToken)
-              setToken(res.data?.jwtToken)
+              setToken(res.data?.token)
               resolve(null)
             } else {
               reject(res)
@@ -62,14 +62,6 @@ export const useUserStore = defineStore('user', {
             if (!data) {
               return reject('Verification failed, please Login again.')
             }
-            //此处模拟数据
-            const rolesArr: any = localStorage.getItem('roles')
-            if (rolesArr) {
-              data.roles = JSON.parse(rolesArr)
-            } else {
-              data.roles = ['admin']
-              localStorage.setItem('roles', JSON.stringify(data.roles))
-            }
             const { roles, username } = data
             this.M_username(username)
             this.M_roles(roles)
@@ -82,16 +74,7 @@ export const useUserStore = defineStore('user', {
     },
     // user logout
     logout() {
-      return new Promise((resolve, reject) => {
-        logoutReq()
-          .then(() => {
-            this.resetState()
-            resolve(null)
-          })
-          .catch((error: any) => {
-            reject(error)
-          })
-      })
+      return this.resetState()
     },
     resetState() {
       return new Promise((resolve) => {
