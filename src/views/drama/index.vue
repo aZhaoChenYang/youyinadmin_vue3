@@ -13,7 +13,7 @@
           <el-button type="success" size="small" @click="ser_dra()">查找</el-button>
         </el-col>
         <el-col :span="1">
-          <el-button type="infor" size="small" @click="get_script()">重置</el-button>
+          <el-button type="info" size="small" @click="get_script()">重置</el-button>
         </el-col>
       </el-row>
     </div>
@@ -53,7 +53,7 @@ import request from '@/utils/axiosReq'
 import {ElMessageBox} from "element-plus";
 import {ElMessage} from "element-plus";
 
-let state = reactive({
+const state = reactive({
   tableData: [],
   input: "",
 })
@@ -74,6 +74,7 @@ const get_script = () => {
     method: 'get',
   }).then(res => {
     state.tableData = res.data
+    state.input = ""
   })
 }
 const delete_drama = (id) => {
@@ -91,16 +92,27 @@ const delete_drama = (id) => {
       method: 'delete',
       isAlertErrorMsg: false
     }).then(res => {
-      console.log(res)
       get_script()
     }).catch(err => {
       ElMessage.error("删除失败")
     })
   }).catch(() => {
-    console.log('取消')
   })
+}
+const router = useRouter()
+const jump_add = () => {
+  router.push({
+    path: '/drama/detail'
+  })
+}
 
-
+const jump_to_dramaEdit = (row) => {
+  router.push({
+    path: '/drama/detail',
+    query: {
+      id: row.id
+    }
+  })
 }
 onMounted(() => {
   get_script()

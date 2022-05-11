@@ -3,6 +3,7 @@ import Layout from '@/layout'
 import {RouterTy} from '~/router'
 
 export const constantRoutes: RouterTy = [
+
   {
     path: '/login',
     component: () => import('@/views/login/Login.vue'),
@@ -50,10 +51,10 @@ export const asyncRoutes: RouterTy = [
         meta: {title: '剧本', elSvgIcon: 'Notebook', roles: ['admin', "editer"]}
       },
       {
-        path: '/adddrama',
+        path: 'detail',
         name: 'drama-detail',
         component: () => import('@/views/drama/detail.vue'),
-        meta: {title: '剧本详情', roles: ['admin', "editer"]},
+        meta: {title: '剧本详情', roles: ['admin']},
         hidden: true
       }
     ]
@@ -67,7 +68,13 @@ export const asyncRoutes: RouterTy = [
         name: 'shop',
         component: () => import('@/views/shop/index.vue'),
         meta: {title: '店铺', elSvgIcon: 'Shop', roles: ['admin']}
-      },
+      },{
+        path: 'detail',
+        name: 'shop-detail',
+        component: () => import('@/views/shop/detail.vue'),
+        meta: {title: '店铺详情', roles: ['admin']},
+        hidden: true
+      }
     ]
   },
   {
@@ -141,7 +148,8 @@ export const asyncRoutes: RouterTy = [
         meta: {title: '设置', elSvgIcon: 'Setting', roles: ['admin']}
       }
     ]
-  }
+  },
+  { path: '/:pathMatch(.*)', redirect: '/404', hidden: true }
 ]
 
 const router: Router = createRouter({
