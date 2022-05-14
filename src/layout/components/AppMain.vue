@@ -3,14 +3,14 @@
     <router-view v-slot="{ Component }">
       <!--has transition  Judging by settings.mainNeedAnimation-->
       <transition v-if="settings.mainNeedAnimation" name="fade-transform" mode="out-in">
-        <keep-alive :include="cachedViews">
+<!--        <keep-alive :include="cachedViews">-->
           <component :is="Component" :key="key" />
-        </keep-alive>
+<!--        </keep-alive>-->
       </transition>
       <!-- no transition -->
-      <keep-alive v-else :include="cachedViews">
+<!--      <keep-alive v-else :include="cachedViews">-->
         <component :is="Component" :key="key" />
-      </keep-alive>
+<!--      </keep-alive>-->
     </router-view>
   </div>
 </template>

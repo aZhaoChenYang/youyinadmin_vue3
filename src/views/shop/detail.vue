@@ -52,11 +52,14 @@ const subform = reactive({
 });
 let map = null;
 const loadMap = () => {
+  // eslint-disable-next-line no-undef
   map = new BMap.Map('container')
+  // eslint-disable-next-line no-undef
   const point = new BMap.Point(117.124954, 40.148567)
   map.centerAndZoom(point, 20)
   map.enableScrollWheelZoom(true)
   // map.addOverlay(new BMap.Marker(point))
+  // eslint-disable-next-line no-undef
   const geocoder = new BMap.Geocoder()// 用于逆解析
   map.addEventListener('click', function (e) {
     geocoder.getLocation(e.point, function (rs) {
@@ -67,7 +70,9 @@ const loadMap = () => {
     const point2 = e.point
     subform.lat = point2.lat
     subform.long = point2.lng
+    // eslint-disable-next-line no-undef
     const point = new BMap.Point(point2.lng, point2.lat)
+    // eslint-disable-next-line no-undef
     const marker = new BMap.Marker(point)
     map.centerAndZoom(point, 20)
     map.addOverlay(marker)
@@ -116,7 +121,9 @@ onMounted(() => {
       subform.lat = res.data.lat
       subform.long = res.data.long
       subform.address = res.data.address
+      // eslint-disable-next-line no-undef
       const point = new BMap.Point(res.data.long, res.data.lat)
+      // eslint-disable-next-line no-undef
       const marker = new BMap.Marker(point)
       map.addOverlay(marker)
 

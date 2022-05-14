@@ -30,8 +30,6 @@
     "path": "0.12.7",
     "path-to-regexp": "^6.2.0",
     "pinia": "2.0.13",
-    "quill-blot-formatter": "^1.0.5",
-    "quill-image-uploader": "^1.2.2",
     "tinymce": "6.0.1",
     "vue": "3.2.33",
     "vue-router": "4.0.14"

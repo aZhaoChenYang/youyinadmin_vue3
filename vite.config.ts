@@ -11,8 +11,8 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 //auto import element-plus has some issue
-// import Components from 'unplugin-vue-components/vite'
-// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// import Components from 'unplugin-vue-set1/vite'
+// import { ElementPlusResolver } from 'unplugin-vue-set1/resolvers'
 
 //auto import vue https://www.npmjs.com/package/unplugin-auto-import
 import AutoImport from 'unplugin-auto-import/vite'
